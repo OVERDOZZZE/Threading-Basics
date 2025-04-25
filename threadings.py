@@ -2,13 +2,11 @@ import threading
 import time
 import requests
 
-
 # Program 1 (lvl.1)
 
 def print_text(thr_num, delay):
     time.sleep(delay)
     print(f'Hello from thread number {thr_num}\n')
-
 
 t1 = threading.Thread(target=print_text, args=(1,1))
 t2 = threading.Thread(target=print_text, args=(2,2))
@@ -24,7 +22,6 @@ t3.join()
 
 # Program 1 (lvl.1) --- Remake
 
-
 threads = []
 
 for i in range(1,4):
@@ -36,13 +33,9 @@ for i in range(1,4):
 for t in threads:
     t.join()
 
-
-
 # Program 2 (lvl.2) 
 
-
 urls = ['url/1', 'url/2', 'url/3', 'url/4', 'url/5']
-
 
 def downloader(url):
     try:
@@ -56,7 +49,6 @@ def downloader(url):
     except Exception as e:
         print(f'Failed to download url {url}: {e}')
 
-
 threads = []
 
 for url in urls:
@@ -68,8 +60,6 @@ for t in threads:
     t.join()
 
 print("All threads joined. Some files may have failed. Check logs above.")
-
-
 
 # Program 3 (lvl.2.5)
 
